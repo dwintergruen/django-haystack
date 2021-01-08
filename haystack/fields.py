@@ -269,7 +269,7 @@ class LocationField(SearchField):
             value = ensure_point(value)
             return value
 
-        if isinstance(value, six.string_types):
+        if isinstance(value, str):
             lat, lng = value.split(",")
         elif isinstance(value, (list, tuple)):
             # GeoJSON-alike
@@ -390,7 +390,7 @@ class DateField(SearchField):
         if value is None:
             return None
 
-        if isinstance(value, six.string_types):
+        if isinstance(value, str):
             match = DATE_REGEX.search(value)
 
             if match:
@@ -423,7 +423,7 @@ class DateTimeField(SearchField):
         if value is None:
             return None
 
-        if isinstance(value, six.string_types):
+        if isinstance(value, str):
             match = DATETIME_REGEX.search(value)
 
             if match:
