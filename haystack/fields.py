@@ -241,7 +241,7 @@ class CharField(SearchField):
         if value is None:
             return None
 
-        return six.text_type(value)
+        return str(value)
 
 
 class LocationField(SearchField):
@@ -352,7 +352,7 @@ class DecimalField(SearchField):
         if value is None:
             return None
 
-        return six.text_type(value)
+        return str(value)
 
 
 class BooleanField(SearchField):
@@ -468,7 +468,7 @@ class MultiValueField(SearchField):
         if value is None:
             return None
 
-        if hasattr(value, "__iter__") and not isinstance(value, six.text_type):
+        if hasattr(value, "__iter__") and not isinstance(value, str):
             return value
 
         return [value]
